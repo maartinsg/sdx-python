@@ -10,5 +10,3 @@ while True:
     else:
         print("You win! :)")
         break
-
-
