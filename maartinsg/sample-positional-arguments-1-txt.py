@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 
 def getSum(*args, initial=0, maximum=50):
     total = initial
