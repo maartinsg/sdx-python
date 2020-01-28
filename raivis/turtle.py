@@ -1,9 +1,9 @@
-import turtle
-turtle.forward(100)
-turtle.right(90)
-turtle.forward(100)
-turtle.right(90)
-turtle.forward(100)
-turtle.right(90)
-turtle.forward(100)
-turtle.done()
+import turtle as tr
+tr.forward(100)
+tr.right(90)
+tr.forward(100)
+tr.right(90)
+tr.forward(100)
+tr.right(90)
+tr.forward(100)
+tr.done()
