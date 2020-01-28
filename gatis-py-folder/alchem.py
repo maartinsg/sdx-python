@@ -9,18 +9,25 @@ session = DBsession()
 
 Base = declarative_base()
 
+
 class Person(Base):
     __tablename__ = 'person'
     id = Column('id', Integer, primary_key=True)
     name = Column('name', String(40))
-    age = Column ('age', Integer)
+    age = Column('age', Integer)
+
 
 Base.metadata.create_all(engine)
 
 new_person = Person(name='Mary', age=30)
 session.add(new_person)
+
 new_person = Person(name='John', age=42)
 session.add(new_person)
+
+new_person = Person(name='Vasja', age=55)
+session.add(new_person)
+
 session.commit()
 
 for row in session.query(Person).all():

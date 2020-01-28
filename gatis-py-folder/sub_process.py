@@ -1,11 +1,12 @@
 from subprocess import Popen, PIPE
 
-print(" ".join(['ping', '8.8.8.8', '-c', '2']))
-process = Popen(" ".join(['ping', '8.8.8.8', '-c', '2']), shell=True, stdout=PIPE, stderr=PIPE)
+ipaddr = '8.8.8.8'
+my_string = " ".join(['ping', str(ipaddr), '-c', '2'])
+print ("Executing command: %s \n" % my_string)
 
-print(process.stdout.read())
-
+process = Popen(my_string, shell=True, stdout=PIPE, stderr=PIPE)
 rc = process.wait()
-print ("exit code: {}".format(rc))
 
+print (process.stdout.read())
+print ("exit code: {}".format(rc))
 print ("error: {}".format(process.stderr.read()))
