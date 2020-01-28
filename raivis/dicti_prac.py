@@ -9,5 +9,7 @@ elif (input==str('action 1')):
    print("I'll " + str(dicti.get('action 1')) + " later")
 elif (input==str('action 3')):
    print("I'll " + str(dicti.get('action 3')) + " later")
+else:
+   print("Sorry, wrong input!")
 
 
