@@ -1,7 +1,7 @@
 while True:
     try:
-        first = raw_input("Number 1:")
-        second = raw_input("Number 2: ")
+        first = input("Number 1:")
+        second = input("Number 2: ")
 
         result = float(first) / float(second)
         print("{} / {} = {}".format(first, second, result))
@@ -10,6 +10,8 @@ while True:
     except ZeroDivisionError:
         print("The answer would be Infinity / Infinity too")
         errorFlag = True
+        #raise
+    
     except Exception as e:
         print("Unexcepted or unexpected error was ({})".format(e.message))
 
