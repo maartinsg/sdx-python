@@ -1,7 +1,11 @@
 import random
-
-value=raw_input("Enter a value between 1 and 10 ")
+value=0
 rnd=random.randint(1,10)
+while(value !=rnd):
+    
+    value=raw_input("Enter a value between 1 and 10 ")
+
+
 if (value== rnd):
     print("You have guessed the value")
 elif(value > rnd):
@@ -9,4 +13,5 @@ elif(value > rnd):
 elif(value< rnd):
     print("Too low :C ")
 else:
-    print("You win")
+    print("you win")
+
