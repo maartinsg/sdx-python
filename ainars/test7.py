@@ -9,6 +9,7 @@ while True:
     except ZeroDivisionError:
         print("The answer is infinity")
         errorFlag = True
+#        raise
 
     except Exception as e:
         print("Unexpected error ({})".format(e.message))
