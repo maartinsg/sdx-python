@@ -1,7 +1,7 @@
 while True:
     try:
         first = raw_input("Number 1: ")
-        second = raw_input("Number 2:" )
+        second = raw_input("Number 2: ")
 
         result = float(first) / float(second)
         print("{} / {} = {}".format(first, second, result))

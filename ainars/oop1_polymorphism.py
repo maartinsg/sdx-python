@@ -1,9 +1,11 @@
 import math
 
-#class definiton
+
+# c lass definition
 class Figure:
     def __init__(self, name):
         self.name = name
+
 
 class Squere(Figure):
     def __init__(self, name, a):
@@ -12,6 +14,7 @@ class Squere(Figure):
 
     def area(self):
         return self.a*self.a
+
 
 class Circle(Figure):
     def __init__(self, name, r):
@@ -22,9 +25,9 @@ class Circle(Figure):
         return math.pi*self.r**2
 
 
-#instances
+# instances
 s1 = Squere('room', 5)
 c1 = Circle('pool', 2)
 
 for r in [s1, c1]:
-    print("{} area: {}".format(r.name, r.area()))
+    print('{} area: {:.2f}'.format(r.name, r.area()))
