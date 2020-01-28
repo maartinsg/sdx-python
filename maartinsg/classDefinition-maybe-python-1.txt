@@ -10,6 +10,8 @@ class Rectangle:
 
     def area(self):
          return self.a*self.b
+    def getName(self):
+         return self.__name # not to return due to 'encapsulation hide process' Logically, comprehensible.
 
 # Instances
 r1 = Rectangle('kitchennete', 2, 4)
