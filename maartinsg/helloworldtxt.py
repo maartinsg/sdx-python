@@ -14,3 +14,9 @@ print()
 r = [1, 2.0, 3, "5"]
 # to change format for a list appropriately easier
 print("list: {}".format(r))
+
+# to use also example dictionary to use format of dictionary.get('key', <typicalvalue>)
+h = {'id': 12, 'version': '2.7.13.2'}
+h.['version'] = '2.7.13.2'
+# replacing h.['version'] value
+h.['version'] = 32
