@@ -17,3 +17,8 @@ choice = raw_input("your choice? ")
 
 print("I'll %s" % str(actions.get(choice)) + " today")
 
+#def actions_check(choice):
+
+#    while choice != "action 1" and choice != "action 2" and choice != "action 3":
+
+#        print("I'll %s" % str(actions.get(choice)) + " today")

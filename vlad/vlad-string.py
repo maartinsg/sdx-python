@@ -29,3 +29,20 @@ print("unpacked b: {}".format(b))
 #swap values
 a, b = b, a
 print("a={}; b={}".format(a,b))
+
+#dictionary
+h = {'id': 12, 'name': 'Python'}
+print("Dictionary: {}".format(h))
+
+#access by key
+print("Value of 'id': {}".format(h['id']))
+
+#check key [h.get('key',<default>)]
+print("Has key 'name'?: []".format(h.has_key('name')))
+
+#adding a key/value
+h['version'] = '2.7.15'
+#replace the value
+h['id'] = 32
+print("Updated dictionary: {}".format(h))
+
