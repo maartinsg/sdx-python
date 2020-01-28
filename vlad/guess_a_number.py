@@ -1,13 +1,12 @@
 import random
 
 secret = random.randint(1,10)
-print("Guess a number between 1 and 10")
 
 number = 0
 
-while secret != number:
+while True:
     
-    number = input()
+    number = raw_input("Guess a number between 1 and 10 = ")
     number = int(number)
 
     if number < secret:
@@ -19,5 +18,4 @@ while secret != number:
     if number == secret:
         print("You win!")
         break
-    
 
