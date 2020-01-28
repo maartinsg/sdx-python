@@ -7,7 +7,6 @@ while True:
         print("Too small! :(")
     elif int(usernum) > realnum:
         print("Too big! :(")
-        
     else:
         print("You win! :)")
         break
