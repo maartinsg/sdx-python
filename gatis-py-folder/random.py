@@ -1,6 +1,6 @@
 import random
 secret = random.randint(1,10)
-print secret
+##print secret
 
 while True:
     guess = int(input("Guess a number between 1 and 10: "))
