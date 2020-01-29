@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from flask import Flask, request
 from flask_restful import reqparse, abort, Resource, Api
+from subprocess import Popen, PIPE
 
 # TodoList
 # Shows a list of all todos, and lets you POST to add new tasks
@@ -50,11 +51,32 @@ class Todo(Resource):
         TODOS[todo_id] = task
         return task, 201
 
-api.add_resource(Todo, '/todos/<todo_id>')
+class Ping(Resource):
+    def get(self, ip):
+        print ("debug: ping IP '{}'".format(ip))
+        # execute com mand
+        process = Popen(" ".join(
+            ['ping', ip,'-c' 'l']),
+            shell=True, stdout=PIPE, stderr=PIPE)
+
+        # read stdout
+        out = process.stdout.read()
+        print("STDOUT: {}".format(out))
+
+        # wait for child process to terminate.
+        rc = process.wait()
+        print ("exit code: {}".format(rc))
+        return out
+
+
 
 ##Setup the API resource routing here
 
+api.add_resource(Todo, '/todos/<todo_id>')
+
 api.add_resource(TodoSimple, '/todos')
+
+api.add_resource(Ping, '/ping/<ip>')
 
 
 if __name__ == '__main__':
