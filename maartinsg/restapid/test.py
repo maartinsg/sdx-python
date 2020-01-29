@@ -9,7 +9,7 @@ from requests import put, get, post
 #print("PUT(todo1): {}".format(ret.json()))
 
 ret = get('http://localhost:5000/todos')
-print("GET(todo1): {}".format(ret.json()))
+print("GET({}): {}".format(ret.status_code, ret.json()))
 
 #ret = put(
 #    'http://localhost:5000/todo2',
@@ -18,4 +18,4 @@ print("GET(todo1): {}".format(ret.json()))
 #print("PUT(todo2): {}".format(ret.json()))
 
 ret = post('http://localhost:5000/todos')
-print("POST(todos): {}".format(ret.json()))
+print("POST({}): {}".format(ret.status_code, ret.json()))
