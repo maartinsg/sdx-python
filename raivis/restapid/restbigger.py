@@ -17,6 +17,17 @@ class TodoList(Resource):
         print("devug: added task with id '{}'".format(todo_id))
         return TODOS[todo_id], 201
 
+class Todo(Resource):
+    def get(self, todo_id):
+        #abort_if_todo_doesnt_exit(todo_id)
+        return TODOS[todo_id]
+
+    def put(self, todo_id):
+        args = parser.parse_args()
+        task = {'task': args['task']}
+        TODOS[todo_id] = task
+        return task, 201
+    
 TODOS = {
     'todo1': {'task': 'build an API'},
     'todo2': {'task': 'be a pro'},
@@ -33,6 +44,7 @@ parser.add_argument('task')
 ## Actually set up API resource routing here
 ##
 api.add_resource(TodoList, '/TODOS')
+api.add_resource(Todo, '/TODOS/<todo_id>')
 
 if __name__ == '__main__':
     app.run(debug=True)
