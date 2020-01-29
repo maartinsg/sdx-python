@@ -8,7 +8,7 @@ from requests import get, post, put, delete
 #print("POST({}): {}".format(ret.status_code, ret.json()))
 
 ret = put(
-    'http://localhost:5000/todos/todo10',
+    'http://192.168.8.110:5000/todos/todo10',
     data={'task': 'something cool'}
     )
 
@@ -20,7 +20,7 @@ ret = put(
   #  ret.status_code,
   #  ret.text))
 
-ret = get('http://192.168.8.108:5000/todos')
+ret = get('http://192.168.8.110:5000/todos')
 print("GET({}): {}".format(
     ret.status_code,
     ret.json()))
