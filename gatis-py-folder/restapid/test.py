@@ -9,8 +9,9 @@ from requests import post, get, put, delete
 ##ret = delete('http://localhost:5000/todos/todo15')
 ##print("DELETE({}): {}".format(ret.status_code, ret.text))
 
-ret = get('http://localhost:5000/todos')
+##ret = get('http://localhost:5000/todos')
+##print("GET({}): {}".format(ret.status_code, ret.json()))
+
+ret = get('http://localhost:5000/ping/8.8.8.8')
 print("GET({}): {}".format(ret.status_code, ret.json()))
-
-
 
