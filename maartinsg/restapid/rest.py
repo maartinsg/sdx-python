@@ -44,5 +44,12 @@ api.add_resource(TodoList, '/todos')
 # return Dictionary part
 #api.add_resource(TodoList, '/todos')
 
+class Todo(Resource):
+    def get(self, todo_id):
+        # abort_if_todo_doesnt_exist(todo_id)
+        return TODOS[todo_id]
+
+api.add_resource(Todo, '/todos/<todo_id>')
+
 if __name__ == '__main__':
     app.run(debug=True)
