@@ -30,9 +30,20 @@ api = Api(app)
 parser = reqparse.RequestParser()
 parser.add_argument('task')
 
+# Todo
+# shows a single todo item and lets you delete a todo item
+
+class Todo(Resource):
+    def get(self, todo_id):
+        #abort_if_todo_doesnt_exist(todo_id)
+        return TODOS[todo_id]
+
+api.add_resource(Todo, '/todos/<todo_id>')
+
 ##Setup the API resource routing here
 
 api.add_resource(TodoSimple, '/todos')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
