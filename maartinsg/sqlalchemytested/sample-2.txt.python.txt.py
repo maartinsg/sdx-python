@@ -1,3 +1,4 @@
+
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
@@ -24,6 +25,6 @@ session.add(new_person)
 new_person = Person(name='John', age=42)
 session.add(new_person)
 session.commit()
-
+#
 for row in session.query(Person).all():
     print('{} is {} years on a passport age '.format(row.name, row.age))
