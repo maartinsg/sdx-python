@@ -18,7 +18,7 @@ class TodoList(Resource):
         print("sebug: added task with id '{}'".format(todo_id))
         return TODOS[todo_id], 201
 
-# shows a single todo item and lets you delete a todo item /elements
+# shows a single todo item and lets you delete a todo item / elements
 class Todo(Resource):
     def get(self, todo_id):
         print("debug: gitting task with id '{}'".format(todo_id))
@@ -52,5 +52,5 @@ parser.add_argument('task')
 api.add_resource(TodoList, '/todos')
 api.add_resource(Todo, '/todos/<todo_id>')
 
-if __name__ == '__main__':  #if smb use console -> open app
-    app.run(debug=True)
+if __name__ == '__main__':  #if smb uses console -> open app
+    app.run(debug=True, host='0.0.0.0', port='5000')
