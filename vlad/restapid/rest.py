@@ -38,6 +38,12 @@ class Todo(Resource):
         #abort_if_todo_doesnt_exist(todo_id)
         return TODOS[todo_id]
 
+    def put(self, todo_id):
+        args = parser.parse_args()
+        task = {'task': args['task']}
+        TODOS[todo_id] = task
+        return task, 201
+
 api.add_resource(Todo, '/todos/<todo_id>')
 
 ##Setup the API resource routing here
