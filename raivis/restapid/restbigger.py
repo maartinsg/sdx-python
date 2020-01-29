@@ -19,10 +19,18 @@ class TodoList(Resource):
 
 class Todo(Resource):
     def get(self, todo_id):
+        print("debug: getting task with id '{}'".format(todo_id))
         #abort_if_todo_doesnt_exit(todo_id)
         return TODOS[todo_id]
 
+    def delete(self, todo_id):
+        print("debug: getting task with id '{}'".format(todo_id))
+        #abort_if_todo_doesnt_exit(todo_id)
+        del TODOS[todo_id]
+        return '', 204
+    
     def put(self, todo_id):
+        print("debug: getting task with id '{}'".format(todo_id))
         args = parser.parse_args()
         task = {'task': args['task']}
         TODOS[todo_id] = task
