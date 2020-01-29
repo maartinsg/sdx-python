@@ -1,14 +1,18 @@
 #!/user/bin/env python
-from requests import put, get
+from requests import post, get, put
 
-ret = put('http://localhost:5000/todo1', data={'data': 'Remember the milk'})
-print("PUT(todo1): {}".format(ret.json()))
+ret = get('http://localhost:5000/todos')
+print("GET({}): {}".format(ret.status_code, ret.json()))
 
-ret = get('http://localhost:5000/todo1')
-print("GET(todo1): {}".format(ret.json()))
+ret = post('http://localhost:5000/todos', data={'task': 'cool task'})
+print("POST({}): {}".format(ret.status_code, ret.json()))
 
-ret = put('http://localhost:5000/todo2', data={'data': 'Change my brakepads'})
-print("PUT(todo2): {}".format(ret.json()))
+ret = put('http://localhost:5000/todos/todo10', data={'task': 'something cool'})
+print("GET({}): {}".format(ret.status_code, ret.json()))
 
-ret = get('http://localhost:5000/todo2')
-print("GET(todo2): {}".format(ret.json()))
+ret = get('http://localhost:5000/todos')
+print("GET({}): {}".format(ret.status_code, ret.json()))
+
+
+
+
