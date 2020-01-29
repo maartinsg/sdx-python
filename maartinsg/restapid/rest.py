@@ -3,6 +3,7 @@
 ####################
 # RestAPI
 ####################
+from subprocess import Popen, PIPE
 from flask import Flask
 from flask_restful import reqparse, abort, Resource, Api
 
@@ -44,6 +45,22 @@ class TodoSimple(Resource):
 # return Dictionary part
 ######api.add_resource(TodoSimple, '/todos')
 
+class Ping(Resource):
+    def get(self, ip):
+        print("debug: ping IP '{}'".format(ip))
+        process = Popen(" ".join(['ping', '-c', '2', ip]), shell=True, stdout=PIPE, stderr=PIPE)
+        #print(processing)
+        #read STDOUT
+        out = process.stdout.read()
+        #wait for the subprocess to finish?
+        rc = process.wait()
+        print("exit code: {}".format(rc))
+        # print("error: {}".format(process.stderr.read()))
+        return out
+
+#read STDERR
+
+
 class Todo(Resource):
     def get(self, todo_id):
         print("debug: getting task with the id '{}'".format(todo_id))
@@ -72,5 +89,7 @@ api.add_resource(TodoList, '/todos')
 
 api.add_resource(Todo, '/todos/<todo_id>')
 
+api.add_resource(Ping, '/ping/<ip>')
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=12345)
+    app.run(debug=True, host='0.0.0.0', port=5000)
