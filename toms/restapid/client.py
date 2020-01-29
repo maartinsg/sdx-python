@@ -1,12 +1,16 @@
 from requests import put, get, post
 
+
+ret = get('http://192.168.8.108:5000/ping/0.0.0.0')
+print("GET({}) {}:".format(ret.status_code, ret.json()))
+
+
+
+
+
 #version 3 updated
 #ret = delete('http://localhost:5000/todos')
 #print("delete({}): {}".format(ret.status_code, ret.json()))
-
-ret = get('http://192.168.8.107:5000/todos')
-print("GET({}): {}".format(ret.status_code, ret.json()))
-
 
 """
 ret = put(
