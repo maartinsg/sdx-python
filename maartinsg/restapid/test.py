@@ -2,14 +2,14 @@
 
 from requests import put, get, post
 
-#ret = put(
-#    'http://localhost:5000/todo1',
-#    data={'data': 'Remember the milk please'}
-#    )
-#print("PUT(todo1): {}".format(ret.json()))
+ret = put(
+    'http://localhost:5000/todos/todo10',
+    data={'task': 'maybe to create a datafile please'}
+    )
+print("PUT({}): {}".format(ret.status_code, ret.text))
 
-ret = get('http://localhost:5000/todos/todo1')
-print("GET({}): {}".format(ret.status_code, ret.json()))
+ret = get('http://localhost:5000/todos/todos')
+print("GET({}): {}".format(ret.status_code, ret.text))
 
 #ret = put(
 #    'http://localhost:5000/todo2',

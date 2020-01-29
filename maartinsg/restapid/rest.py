@@ -31,7 +31,7 @@ parser = reqparse.RequestParser()
 parser.add_argument('task')
 
 ## actually setting up the Api resource routing here
-api.add_resource(TodoList, '/todos')
+#api.add_resource(TodoList, '/todos')
 
 #class TodoSimple(Resource):
 #    def get(self, todo_id):
@@ -46,10 +46,18 @@ api.add_resource(TodoList, '/todos')
 
 class Todo(Resource):
     def get(self, todo_id):
-        # abort_if_todo_doesnt_exist(todo_id)
+        abort_if_todo_doesnt_exist(todo_id)
         return TODOS[todo_id]
 
+    def put(self, todo_id):
+        args = parser.parse_args()
+        task = {'task': args['task']}
+        TODOS[todo_id] = task
+
 api.add_resource(Todo, '/todos/<todo_id>')
+
+## actually setting up the Api resource routing here
+######api.add_resource(TodoList, '/todos/<todo_id>')
 
 if __name__ == '__main__':
     app.run(debug=True)
