@@ -2,6 +2,7 @@
 from requests import get, post, put, delete
 
 
+'''
 
 ret = post('http://localhost:5000/TODOS', data={'task': 'cool task'})
 print("POST({}): {}".format(ret.status_code, ret.json()))
@@ -29,3 +30,11 @@ ret = put('http://localhost:5000/TODOS/todo10',
           data={'task': 'something new'}
           )
 print("GET({}): {}".format(ret.status_code, ret.text))
+
+'''
+
+ret = get('http://localhost:5000/TODOS')
+print("GET({}): {}".format(ret.status_code, ret.text))
+
+ret = get('http://192.168.8.104:5000/PING/192.168.8.103')
+print("GET({}): {}".format(ret.status_code, ret.json()))
