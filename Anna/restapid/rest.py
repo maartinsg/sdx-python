@@ -24,6 +24,12 @@ class Todo(Resource):
         #abort_if_todo_doesnt_exist(todo_id)
         return TODOS[todo_id]
 
+    def put(self, todo_id):
+        args = parser.parse_args()
+        task = {'task': args['task']}
+        TODOS[todo_id] = task
+        return task, 201
+
 TODOS = {
     'todo1': {'task': 'build an API'},
     'todo2': {'task': '?????'}
