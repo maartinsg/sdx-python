@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 engine = create_engine('sqlite://')
 DBSession = sessionmaker(bind=engine)
-session = DBSession
+asession = DBSession
 
 Base = declarative_base()
 
@@ -22,9 +22,12 @@ Base.metadata.create_all(engine)
 # To insert person credentials in the table named 'person'
 new_person = Person(name='Mary', age=30)
 session.add(new_person)
+
 new_person = Person(name='John', age=42)
 session.add(new_person)
+
 session.commit()
 #
+
 for row in session.query(Person).all():
     print('{} is {} years on a passport age '.format(row.name, row.age))
