@@ -11,6 +11,6 @@ def printMessage(message):
 msg1 = getMessage('Janis')
 msg2 = getMessage("Maris")
 
-printMessage("hello world")
+printMessage("Hello World!")
 printMessage(msg1)
 printMessage(getMessage("Anna"))

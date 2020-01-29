@@ -11,6 +11,5 @@ print("{} - {}".format(person, status))
 
 status_map = {'Ainars': 'Guy', 'Luke': 'Jedi'}
 person = "Ainars"
-print("%s = %s" % (person, status_map.get(person)))
-
+print("%s - %s" % (person, status_map.get(person)))
 
