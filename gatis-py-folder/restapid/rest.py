@@ -24,8 +24,14 @@ class TodoList(Resource):
 
 class Todo(Resource):
     def get(self, todo_id):
-##        abort_if_todo_doesnt_exist(todo_id)
+        abort_if_todo_doesnt_exist(todo_id)
         return todos[todo_id]
+
+    def put(self, todi_id):
+        args = parser.parse_args()
+        task = {'task': args['task']}
+        todos[todo_id] = task
+        return task, 201
 
 todos = {
     'todo1': {'task': 'doing something 1'},
