@@ -3,7 +3,7 @@
 ####################
 # RestAPI
 ####################
-from flask import Flask, requeset
+from flask import Flask, request
 from flask_restful import Resource, Api
 
 app = Flask(__name__)
