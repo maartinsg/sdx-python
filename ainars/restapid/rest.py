@@ -1,10 +1,13 @@
 #!/user/bin/env python
+
 from flask import Flask
-from flask_restful import Resource, Api, abort, reqparse
+from flask_restful import Resource, Api, reqparse
 from subprocess import Popen, PIPE
 
 # TodoList
 # show a list of all todos, and lets you POST to add new tasks
+
+
 class TodoList(Resource):
     def get(self):
         print("debug: sending full list")
@@ -45,13 +48,14 @@ class Ping(Resource):
     def get(self, ip):
         print("debug: ping IP '{}'".format(ip))
         # execute com mand
-        process = Popen(" ".join(['ping', ip, '-c', '1']), shell=True, stdout=PIPE, stderr=PIPE)
+        process = Popen(" ".join(['ping', ip, '-c', '1']),
+                        shell=True, stdout=PIPE, stderr=PIPE)
 
         # read stdout
         out = process.stdout.read()
         print('exit code: {}'.format(out))
 
-        #wait for childen process to terminate
+        # wait for childen process to terminate
         rc = process.wait()
         print("exit code: {}".format(rc))
 
