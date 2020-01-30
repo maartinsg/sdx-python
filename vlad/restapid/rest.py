@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from requests import get, post, put, delete
 from flask import Flask, request
 from flask_restful import reqparse, abort, Resource, Api
 from subprocess import Popen, PIPE
