@@ -1,9 +1,6 @@
 #!/usr/bin/env python
-#
-# This is a minimal REST API server based on Flask-RESTful library
-# See: https://flask-restful.readthedocs.io/en/latest/quickstart.html
-#
-from flask import Flask, json
+
+from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
 
 app = Flask(__name__)
@@ -19,6 +16,7 @@ TODOS = {
 def abort_if_todo_doesnt_exist(todo_id):
     if todo_id not in TODOS:
         abort(404, message="Todo {} doesn't exist".format(todo_id))
+
 
 parser = reqparse.RequestParser()
 parser.add_argument('task')
@@ -55,21 +53,19 @@ class TodoList(Resource):
         todo_id = 'todo%i' % todo_id
         TODOS[todo_id] = {'task': args['task']}
         return TODOS[todo_id], 201
-    
+
+
 myName = ""
 myFriend = "localhost:12345"
 
+"""
 class StudentList(Resource):
     def get(self):
         data = request.form.to_dict()
         if data.get{''}
-            
+"""
 
-
-
-##
-## Actually setup the Api resource routing here
-##
+# Actually setup the Api resource routing here
 api.add_resource(TodoList, '/todos')
 api.add_resource(Todo, '/todos/<todo_id>')
 
@@ -77,3 +73,5 @@ api.add_resource(Todo, '/todos/<todo_id>')
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=12345)
 
+# This is a minimal REST API server based on Flask-RESTful library
+# See: https://flask-restful.readthedocs.io/en/latest/quickstart.html
