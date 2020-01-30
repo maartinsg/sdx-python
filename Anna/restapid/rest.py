@@ -55,11 +55,12 @@ class Ping(Resource):
 
 TODOS = {
     'todo1': {'task': 'build an API'},
-    'todo2': {'task': '?????'}
+    'todo2': {'task': '?????'},
+    'jenkins': {'you':'cool'}
 }
 
 app = Flask(__name__) # __name__ - name of file, reserved one/ initialize flask(server)
-api = Api(app) #initialize api(handler for the requests)
+api = Api(app) #initialize api (handler for the requests)
 
 parser = reqparse.RequestParser()
 parser.add_argument('task')
